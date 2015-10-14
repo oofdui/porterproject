@@ -31,7 +31,8 @@ if (Meteor.isClient) {
     }
   });
   Template.leaderboard.events({
-    "submit form": function(event, template) {
+    "submit .new-task": function(event, template) {
+        event.preventDefault();
         var patientName=event.target.txtPatient.value
         Porters.update(
           {_id:Session.get("selectedPlayer")},
@@ -39,6 +40,7 @@ if (Meteor.isClient) {
             $set:{patient:patientName}
           }
         );
+        event.target.txtPatient.value="";
       }
   });
 
