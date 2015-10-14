@@ -14,25 +14,28 @@
 </body>
 
 <template name="leaderboard">
-  <ol class="leaderboard">
-    {{#each players}}
-      {{> player}}
-    {{/each}}
-  </ol>
+  <form>
+    <ol class="leaderboard">
+      {{#each players}}
+        {{> player}}
+      {{/each}}
+    </ol>
 
-  {{#if selectedName}}
-    <div class="details">
-      <div class="name">{{selectedName}}</div>
-      <button class="inc">Add 5 points</button>
-    </div>
-  {{else}}
-    <div class="message">Click a player to select</div>
-  {{/if}}
+    {{#if selectedName}}
+      <div class="details">
+        <div class="name" style="margin-right:10px;">{{selectedName}}</div>
+        <input type="textbox" placeholder="PatientName" name="txtPatient"/>
+        <button class="inc">Submit</button>
+      </div>
+    {{else}}
+      <div class="message">Click a porter to select</div>
+    {{/if}}
+  </form>
 </template>
 
 <template name="player">
   <li class="player {{selected}}">
     <span class="name">{{name}}</span>
-    <span class="score">{{score}}</span>
+    <span class="score" style="float:right;">{{patient}}</span>
   </li>
 </template>
